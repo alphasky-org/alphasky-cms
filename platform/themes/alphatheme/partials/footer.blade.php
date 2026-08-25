@@ -25,7 +25,9 @@
                 </aside>
             </div>
             @endif
-            {!! dynamic_sidebar('footer_sidebar') !!}
+            @if (Schema::hasTable('widgets'))
+                {!! dynamic_sidebar('footer_sidebar') !!}
+            @endif
         </div>
     </div>
     <div class="page-footer__bottom">

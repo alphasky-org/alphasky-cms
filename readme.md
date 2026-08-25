@@ -7,8 +7,10 @@
 #### 1-  Use website to install the project:
 ```  php artisan cms:publish:assets ```
 
-- then run the following command to start the development server:
-``` php artisan serve ```
+- then run the following command to start the development server during installation:
+``` php artisan serve --no-reload ```
+
+> **Note:** The web installer updates the `.env` file after you submit the database connection details. The default `php artisan serve` command watches this file and restarts the development server when it changes, which interrupts the installation request and may leave the database only partially migrated. The `--no-reload` option prevents that restart while the installer is running. After the installation is complete, you can stop the server and use `php artisan serve` normally.
 
 - follow the instructions in the website 
 
