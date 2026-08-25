@@ -1,0 +1,17 @@
+.DS_Store
+public/*
+./lang/*
+storage/cache_keys.json
+cache_keys.json
+storage/app/*
+storage/framework/*
+storage/logs/*
+storage/debugbar/*
+bootstrap/cache/*
+vendor/*
+platform/plugins/*
+!platform/plugins/themes/*
+!public/.htaccess
+!public/index.php
+!public/web.config
+!public/favicon.ico
