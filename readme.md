@@ -1,5 +1,5 @@
 - download or run the following command:
-``` gh repo clone alphasky-org/cms-alphasky ```
+``` gh repo clone alphasky-org/alphasky-cms ```
 - create a new database for the project
 
 - Then run the following command in your terminal:
