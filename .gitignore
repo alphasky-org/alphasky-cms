@@ -1,8 +1,10 @@
 .DS_Store
 public/*
-./lang/*
-!./lang/vendor/core
-!./lang/vendor/packages
+
+/lang/vendor/core/
+/lang/vendor/packages/
+/lang/vendor/plugins/
+/lang/*.json
 storage/cache_keys.json
 cache_keys.json
 storage/app/*
