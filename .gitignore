@@ -1,9 +1,12 @@
 .DS_Store
 public/*
 
-/lang/vendor/core/
-/lang/vendor/packages/
-/lang/vendor/plugins/
+/lang/vendor/core/*
+!/lang/vendor/core/.gitkeep
+/lang/vendor/packages/*
+!/lang/vendor/packages/.gitkeep
+/lang/vendor/plugins/*
+!/lang/vendor/plugins/.gitkeep
 /lang/*.json
 storage/cache_keys.json
 cache_keys.json
