@@ -1,6 +1,8 @@
 .DS_Store
 public/*
 ./lang/*
+!./lang/vendor/core
+!./lang/vendor/packages
 storage/cache_keys.json
 cache_keys.json
 storage/app/*
@@ -15,4 +17,5 @@ platform/plugins/*
 !public/index.php
 !public/web.config
 !public/favicon.ico
+
 .env
