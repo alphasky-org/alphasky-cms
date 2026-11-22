@@ -5,6 +5,10 @@ use Alphasky\Theme\Events\RenderingThemeOptionSettings;
 app('events')->listen(RenderingThemeOptionSettings::class, function (): void {
     theme_option()
         ->setField([
+            'id'=>'appearance_preset','section_id'=>'opt-text-subsection-general','type'=>'customSelect',
+            'label'=>__('Site appearance'),'attributes'=>['name'=>'appearance_preset','list'=>['classic'=>__('Classic'),'glass'=>__('Glass')],'value'=>'classic'],
+        ])
+        ->setField([
             'id' => 'primary_color',
             'section_id' => 'opt-text-subsection-general',
             'type' => 'customColor',
@@ -13,6 +17,13 @@ app('events')->listen(RenderingThemeOptionSettings::class, function (): void {
                 'name' => 'primary_color',
                 'value' => '#AF0F26',
             ],
+        ])
+        ->setField([
+            'id' => 'secondary_color',
+            'section_id' => 'opt-text-subsection-general',
+            'type' => 'customColor',
+            'label' => __('Secondary color'),
+            'attributes' => ['name' => 'secondary_color', 'value' => '#39465A'],
         ])
         ->setField([
             'id' => 'primary_color_hover',

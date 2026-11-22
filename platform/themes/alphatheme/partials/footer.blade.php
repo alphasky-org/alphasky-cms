@@ -1,7 +1,7 @@
 </div>
 <footer class="page-footer bg-dark pt-50">
     <div class="container">
-        <div class="row">
+        <div class="footer-widgets">
             @if (theme_option('address') || theme_option('website') || theme_option('contact_email') || theme_option('site_description'))
             <div class="col-lg-3 col-md-3 col-sm-6 col-12">
                 <aside class="widget widget--transparent widget__footer widget__about">

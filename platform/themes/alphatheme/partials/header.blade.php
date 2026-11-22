@@ -7,7 +7,9 @@
         <meta name="format-detection" content="telephone=no">
         <meta name="mobile-web-app-capable" content="yes">
 
-        @php(Theme::set('headerMeta', Theme::partial('header-meta')))
+        @php
+            Theme::set('headerMeta', Theme::partial('header-meta'));
+        @endphp
 
         {!! Theme::header() !!}
     </head>
@@ -73,12 +75,19 @@
                         {!! BaseHelper::renderIcon('ti ti-search', attributes: ['class' => 'close-search']) !!}
                     </div>
                     <nav class="navigation navigation--light navigation--fade navigation--fadeLeft">
-                        {!!
-                            Menu::renderMenuLocation('main-menu', [
-                                'options' => ['class' => 'menu sub-menu--slideLeft'],
-                                'view'    => 'main-menu',
-                            ])
-                        !!}
+                        @php
+                            $menuOptions = ['options' => ['class' => 'menu sub-menu--slideLeft'], 'view' => 'main-menu'];
+                            $mainMenu = Menu::renderMenuLocation('main-menu', $menuOptions);
+                            if (!trim((string) $mainMenu) && is_plugin_active('language')) {
+                                $defaultMenus = \Alphasky\Language\Models\LanguageMeta::where('reference_type', \Alphasky\Menu\Models\Menu::class)
+                                    ->where('lang_meta_code', \Alphasky\Language\Facades\Language::getDefaultLocaleCode())
+                                    ->select('reference_id');
+                                $slug = \Alphasky\Menu\Models\Menu::wherePublished()->whereIn('id', $defaultMenus)
+                                    ->whereHas('locations', fn ($query) => $query->where('location', 'main-menu'))->value('slug');
+                                if ($slug) $mainMenu = Menu::generateMenu(['slug' => $slug] + $menuOptions);
+                            }
+                        @endphp
+                        {!! $mainMenu !!}
 
                         @if (is_plugin_active('member'))
                             <ul class="menu sub-menu--slideLeft d-block d-sm-none">
