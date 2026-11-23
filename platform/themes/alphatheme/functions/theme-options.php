@@ -75,6 +75,13 @@ app('events')->listen(RenderingThemeOptionSettings::class, function (): void {
             ],
         ])
         ->setField([
+            'id' => 'phone',
+            'section_id' => 'opt-text-subsection-general',
+            'type' => 'text',
+            'label' => __('Phone'),
+            'attributes' => ['name' => 'phone', 'options' => ['class' => 'form-control']],
+        ])
+        ->setField([
             'id' => 'website',
             'section_id' => 'opt-text-subsection-general',
             'type' => 'url',

@@ -2,7 +2,7 @@
 <footer class="page-footer bg-dark pt-50">
     <div class="container">
         <div class="footer-widgets">
-            @if (theme_option('address') || theme_option('website') || theme_option('contact_email') || theme_option('site_description'))
+            @if (theme_option('address') || theme_option('phone') || theme_option('website') || theme_option('contact_email') || theme_option('site_description'))
             <div class="col-lg-3 col-md-3 col-sm-6 col-12">
                 <aside class="widget widget--transparent widget__footer widget__about">
                     <div class="widget__header">
@@ -12,7 +12,11 @@
                         <p>{{ theme_option('site_description') }}</p>
                         <div class="person-detail">
                             @if ($address = theme_option('address'))
-                                <p>{!! BaseHelper::renderIcon('ti ti-home') !!} {{ $address }}</p>
+                                <p data-contact-field="address">{!! BaseHelper::renderIcon('ti ti-home') !!} {{ $address }}</p>
+                            @endif
+                            @if ($phone = theme_option('phone'))
+                                @php($digits = strtr($phone, array_combine(mb_str_split('٠١٢٣٤٥٦٧٨٩۰۱۲۳۴۵۶۷۸۹'), str_split('01234567890123456789'))))
+                                <p data-contact-field="phone">{!! BaseHelper::renderIcon('ti ti-phone') !!} <a dir="ltr" href="tel:{{ preg_replace('/[^+0-9]/', '', $digits) }}">{{ $phone }}</a></p>
                             @endif
                             @if ($website = theme_option('website'))
                                 <p>{!! BaseHelper::renderIcon('ti ti-world') !!} {{ Html::link($website) }}</p>
