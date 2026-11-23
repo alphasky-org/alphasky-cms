@@ -51,6 +51,9 @@ app()->booted(function (): void {
     $events->listen('core.page::registering-templates', function (): void {
         register_page_template([
             'no-sidebar' => __('No sidebar'),
+            'no-sidebar-contained' => Lang::has('packages/page::pages.no_sidebar_contained')
+                ? trans('packages/page::pages.no_sidebar_contained')
+                : __('No sidebar, centered content'),
         ]);
     });
 
